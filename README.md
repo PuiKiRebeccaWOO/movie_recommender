@@ -122,13 +122,6 @@ It measures the **angle** between two vectors:
 - 🎞️ Clean UI with movie posters, ratings, overviews
 - 🖼️ Banner GIF and interactive layout with sidebar navigation
 
-### Run the App
-
-```bash
-streamlit run app/app.py
-
----
-
 ## 🛠️ Tools & Technologies
 
 - **Python**: pandas, scikit-learn, numpy, matplotlib, seaborn
@@ -148,3 +141,10 @@ streamlit run app/app.py
 📊 Business & Data Analyst | Where Data Meets Design  
 
 ---
+
+### Run the App
+
+```bash
+streamlit run app/app.py
+
+
