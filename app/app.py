@@ -1,28 +1,26 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import requests
 import os
+import gdown
 
-# Google Drive download
+# Google Drive download setup
 FILE_ID = "1wlWqAaWzsfArkV10kBknQ4Rg8T42ZK5b"
-URL = f"https://drive.google.com/uc?id={FILE_ID}"
+URL = f"https://drive.google.com/uc?id={FILE_ID}&confirm=t"
 
-# Local save path — save in the root directory, not /app
-LOCAL_PATH = "cosine_sim.pkl"
+# Local save path
+LOCAL_PATH = "cosine_sim.pkl"  # Save in root for Streamlit deployment
 
-# Download cosine_sim.pkl if not already downloaded
+# ✅ Download cosine_sim.pkl using gdown if not already present
 if not os.path.exists(LOCAL_PATH):
-    st.info("📥 Downloading similarity matrix...")
-    with open(LOCAL_PATH, "wb") as f:
-        response = requests.get(URL)
-        f.write(response.content)
+    st.info("📥 Downloading similarity matrix from Google Drive...")
+    gdown.download(URL, LOCAL_PATH, quiet=False)
 
-# Load cosine_sim
+# ✅ Load cosine similarity matrix
 with open(LOCAL_PATH, "rb") as f:
     cosine_sim = pickle.load(f)
 
-# Load data
+# ✅ Load your preprocessed DataFrame
 with open('app/new_df.pkl', 'rb') as f:
     new_df = pickle.load(f)
 
