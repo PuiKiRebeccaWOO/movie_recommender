@@ -1,13 +1,29 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import requests
+import os
+
+# Google Drive download
+FILE_ID = "1wlWqAaWzsfArkV10kBknQ4Rg8T42ZK5b"
+URL = f"https://drive.google.com/uc?id={FILE_ID}"
+
+LOCAL_PATH = "app/cosine_sim.pkl"
+
+# Download cosine_sim.pkl if not already downloaded
+if not os.path.exists(LOCAL_PATH):
+    st.info("📥 Downloading similarity matrix...")
+    with open(LOCAL_PATH, "wb") as f:
+        response = requests.get(URL)
+        f.write(response.content)
+
+# Now load the file
+with open(LOCAL_PATH, "rb") as f:
+    cosine_sim = pickle.load(f)
 
 # Load data
 with open('app/new_df.pkl', 'rb') as f:
     new_df = pickle.load(f)
-
-with open('app/cosine_sim.pkl', 'rb') as f:
-    cosine_sim = pickle.load(f)
 
 # Reverse index for recommendation
 indices = pd.Series(new_df.index, index=new_df['title']).drop_duplicates()
