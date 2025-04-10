@@ -3,10 +3,10 @@ import pandas as pd
 import pickle
 
 # Load data
-with open('new_df.pkl', 'rb') as f:
+with open('app/new_df.pkl', 'rb') as f:
     new_df = pickle.load(f)
 
-with open('cosine_sim.pkl', 'rb') as f:
+with open('app/cosine_sim.pkl', 'rb') as f:
     cosine_sim = pickle.load(f)
 
 # Reverse index for recommendation
