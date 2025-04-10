@@ -8,7 +8,8 @@ import os
 FILE_ID = "1wlWqAaWzsfArkV10kBknQ4Rg8T42ZK5b"
 URL = f"https://drive.google.com/uc?id={FILE_ID}"
 
-LOCAL_PATH = "app/cosine_sim.pkl"
+# Local save path — save in the root directory, not /app
+LOCAL_PATH = "cosine_sim.pkl"
 
 # Download cosine_sim.pkl if not already downloaded
 if not os.path.exists(LOCAL_PATH):
@@ -17,7 +18,7 @@ if not os.path.exists(LOCAL_PATH):
         response = requests.get(URL)
         f.write(response.content)
 
-# Now load the file
+# Load cosine_sim
 with open(LOCAL_PATH, "rb") as f:
     cosine_sim = pickle.load(f)
 
