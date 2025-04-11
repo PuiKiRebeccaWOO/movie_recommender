@@ -42,8 +42,7 @@ def recommend(title):
 
 
 # App interface
-st.image("img/cinematch_banner.gif", use_column_width=True)
-
+st.image("app/img/cinematch_banner.gif", use_container_width=True)
 st.sidebar.markdown("## 🍿 **CineMatch**")
 st.sidebar.markdown("_Find your next favorite movie in seconds._")
 st.sidebar.markdown("## **Navigation**")
