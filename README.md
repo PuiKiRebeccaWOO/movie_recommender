@@ -2,6 +2,9 @@
 
 **CineMatch** is a content-based movie recommendation app that helps users discover their next favorite films based on what they already like — or by filtering their preferences like genre, cast, director, and more.
 
+**Find your next favorite movie in seconds**  
+[👉 Launch the App](https://cinematch-find-your-next-favorite-movie.streamlit.app/)
+
 ---
 
 ## 📌 Project Overview
